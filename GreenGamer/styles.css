@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Azeret+Mono&display=swap');
+
+:root {
+    --aluminum: #E5E7EB;
+    --agri-green: #4d7c0f;
+    --agri-dark: #3f6212;
+    --accent-yellow: #facc15;
+}
+
+body {
+    font-family: 'Arimo', sans-serif;
+    background-color: var(--aluminum); 
+    color: #374151;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#sidebar {
+    width: 260px;
+    background-color: var(--agri-green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    z-index: 50;
+    flex-shrink: 0;
+}
+
+.nav-item {
+    padding: 0.9rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: var(--agri-dark);
+    padding-left: 1.7rem;
+}
+
+.nav-item.active {
+    background-color: var(--agri-dark);
+    border-left: 4px solid var(--accent-yellow);
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.glass-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #d1d5db;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--agri-green);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+#fieldVisualization {
+    background: #d4e7c5;
+    background-image: radial-gradient(#6aa84f 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 2px solid #6aa84f;
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.crop-zone {
+    position: absolute;
+    opacity: 0.95;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    z-index: 5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.crop-zone:hover {
+    filter: brightness(1.1);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+#top-profile-trigger {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--accent-yellow);
+    color: var(--agri-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+    z-index: 60;
+    border: 2px solid white;
+}
+
+#top-profile-trigger:hover { transform: scale(1.1); }
+
+#profile-card {
+    position: absolute;
+    top: 5.5rem;
+    right: 2rem;
+    width: 320px;
+    z-index: 70;
+    display: none;
+    animation: slideDown 0.3s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#lessonOverlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.color-wheat { background-color: #f7b731; color: #333; }
+.color-rice { background-color: #38761d; }
+.color-corn { background-color: #6d8e48; }
+.color-cover { background-color: #4682b4; }
+.color-mustard { background-color: #e1ad01; }
+.color-cotton { background-color: #f0f8ff; color: #333; }
+.color-chickpeas { background-color: #d2b48c; color: #333; }
+.color-sugarcane { background-color: #2e8b57; }
+
+input, select {
+    border: 1px solid #d1d5db;
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    background: white;
+    width: 100%;
+}
+
+.tab-content { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
