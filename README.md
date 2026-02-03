@@ -7,7 +7,6 @@ A sustainable agriculture analytics dashboard with Digital Twin crop simulation,
 - Tailwind CSS
 - JavaScript
 - ReactJS
-- 
 ## Features
 - Digital Twin field simulation
 - Crop yield & risk analysis
